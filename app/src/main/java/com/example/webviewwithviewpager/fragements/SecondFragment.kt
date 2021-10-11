@@ -12,26 +12,26 @@ import com.example.webviewwithviewpager.R
 
 class SecondFragment : Fragment() {
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
 
-    }
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        var view: View? = inflater.inflate(R.layout.fragment_second, container, false);
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        val view: View? = inflater.inflate(R.layout.fragment_second, container, false)
         val webview = view!!.findViewById(R.id.Webview1) as WebView
-        val settings = webview.getSettings()
-        webview.setWebChromeClient(WebChromeClient())
-        webview.setWebViewClient(WebViewClient())
-        settings.setJavaScriptEnabled(true)
-        webview.setScrollContainer(false)
-        webview.setVerticalScrollBarEnabled(false)
-        webview.setHorizontalScrollBarEnabled(false)
-        settings.setBuiltInZoomControls(true)
+        val settings = webview.settings
+        webview.webChromeClient = WebChromeClient()
+        webview.webViewClient = WebViewClient()
+        settings.javaScriptEnabled = true
+        webview.isScrollContainer = false
+        webview.isVerticalScrollBarEnabled = false
+        webview.isHorizontalScrollBarEnabled = false
+        settings.builtInZoomControls = true
         settings.setSupportZoom(true)
-        settings.setDisplayZoomControls(false)
-        settings.setLoadWithOverviewMode(true)
-        settings.setUseWideViewPort(true)
+        settings.displayZoomControls = false
+        settings.loadWithOverviewMode = true
+        settings.useWideViewPort = true
         webview.loadUrl("https://www.google.com/search?q=kotlin")
         return view
     }

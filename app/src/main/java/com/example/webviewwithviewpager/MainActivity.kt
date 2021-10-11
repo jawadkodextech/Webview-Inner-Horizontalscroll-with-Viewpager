@@ -29,8 +29,8 @@ class MainActivity : AppCompatActivity(), requestInterface {
         mSectionsPagerAdapter.addFragment(SecondFragment())
         mSectionsPagerAdapter.addFragment(SimpleFragment())
 
-        horzontalViewPager.setAdapter(mSectionsPagerAdapter)
-        horzontalViewPager.setOffscreenPageLimit(2)
+        horzontalViewPager.adapter = mSectionsPagerAdapter
+        horzontalViewPager.offscreenPageLimit = 2
     }
 }
 

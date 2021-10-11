@@ -1,5 +1,6 @@
 package com.example.webviewwithviewpager.customview
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.util.AttributeSet
 import android.view.MotionEvent
@@ -17,6 +18,7 @@ class CustomViewPager : ViewPager {
     constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     override fun onTouchEvent(ev: MotionEvent?): Boolean {
         return this.isPagingEnabled && super.onTouchEvent(ev)
     }
@@ -40,7 +42,7 @@ class CustomViewPager : ViewPager {
         this.isPagingEnabled = b
     }
 
-    fun getPagingStatus(): Boolean? {
+    fun getPagingStatus(): Boolean {
         return isPagingEnabled
     }
 

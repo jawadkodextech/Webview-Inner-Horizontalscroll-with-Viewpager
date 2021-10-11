@@ -1,5 +1,6 @@
 package com.example.webviewwithviewpager.customview
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.util.AttributeSet
 import android.view.MotionEvent
@@ -8,14 +9,16 @@ import com.example.webviewwithviewpager.fragements.WebViewFragment
 
 class CustomWebView : WebView {
 
-    constructor(context: Context): super(context){
-        webView= this
+    constructor(context: Context) : super(context)
+
+    constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {
     }
 
-    constructor(context: Context, attrs: AttributeSet): super(context, attrs) {
-    }
-
-    constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int):   super(context, attrs, defStyleAttr){
+    constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(
+        context,
+        attrs,
+        defStyleAttr
+    ) {
 
     }
 
@@ -25,8 +28,8 @@ class CustomWebView : WebView {
     val prevY: Float? = null
     private val link: String? = null
     val image: String? = null
-    internal lateinit var webView: CustomWebView
-    internal lateinit var webViewFragment: WebViewFragment
+    internal var webView: CustomWebView = this
+    private lateinit var webViewFragment: WebViewFragment
 
     fun setFragment(webViewFragment: WebViewFragment) {
         this.webViewFragment = webViewFragment
@@ -38,6 +41,7 @@ class CustomWebView : WebView {
         super.onOverScrolled(scrollX, scrollY, clampedX, clampedY)
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     override fun onTouchEvent(event: MotionEvent): Boolean {
         super.onTouchEvent(event)
 
